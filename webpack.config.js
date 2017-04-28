@@ -19,14 +19,42 @@ module.exports = {
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           //resolve-url-loader may be chained before sass-loader if necessary
-          use: ['css-loader', 'resolve-url-loader']
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+                minimize: debug ? true : false,
+                importLoaders: 1
+              }
+            },
+            'postcss-loader',
+            'resolve-url-loader'
+          ]
         })
       },
       {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader', 'resolve-url-loader', 'sass-loader?sourceMap']
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+                minimize: debug ? true : false,
+                importLoaders: 3
+              }
+            },
+            'postcss-loader',
+            'resolve-url-loader',
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true
+              }
+            }
+          ]
         })
       }
     ]
