@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import Layout from './pages/Layout';
 
-import styles from '../css/app.css';
+import styles from '../css/app.scss';
 
 let element = `
   <div class="${styles.element}">

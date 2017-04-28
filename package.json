@@ -11,9 +11,11 @@
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.6",
+    "font-awesome": "^4.7.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "react-router": "^4.1.1"
+    "react-router": "^4.1.1",
+    "tether": "^1.4.0"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",

@@ -1,5 +1,7 @@
+$bg-color: blue;
+
 .element {
-  background-color: blue;
+  background-color: $bg-color;
   color: white;
   font-size: 20px;
   padding: 20px;
