@@ -28,7 +28,6 @@ module.exports = {
             {
               loader: 'css-loader',
               options: {
-                modules: true,
                 minimize: debug ? true : false,
                 importLoaders: 1
               }
@@ -46,7 +45,6 @@ module.exports = {
             {
               loader: 'css-loader',
               options: {
-                modules: true,
                 minimize: debug ? true : false,
                 importLoaders: 3
               }

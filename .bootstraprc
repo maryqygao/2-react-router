@@ -1,5 +1,5 @@
 # Output debugging info
-loglevel: debug
+# loglevel: debug
 
 # Major version of Bootstrap: 3 or 4
 bootstrapVersion: 4
@@ -10,23 +10,16 @@ useFlexbox: true
 # Webpack loaders, order matters
 styleLoaders:
   - style-loader
-  - css-loader?module&importLoaders=3
+  - css-loader?&importLoaders=3
   - postcss-loader
   - resolve-url-loader
   - sass-loader?sourceMap
 
 env:
-  development:
-    styleLoaders:
-      - style-loader
-      - css-loader?module&importLoaders=3
-      - postcss-loader
-      - resolve-url-loader
-      - sass-loader?sourceMap
   production:
     styleLoaders:
       - style-loader
-      - css-loader?module&minimize&importLoaders=3
+      - css-loader?&minimize&importLoaders=3
       - postcss-loader
       - resolve-url-loader
       - sass-loader?sourceMap
