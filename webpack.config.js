@@ -140,7 +140,8 @@ module.exports = {
     ]
   },
   output: {
-    path: __dirname + '/build/',
+    path: path.join(__dirname, 'build'),
+    publicPath: '/build/',
     filename: 'client.min.js'
   },
   plugins: debug
