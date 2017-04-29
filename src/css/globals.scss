@@ -3,5 +3,8 @@
  * Copyright 2013-2017 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-small-business/blob/master/LICENSE)
  */
-@import 'navbar-fix';
-@import '_navbar-shift-page';
+@import 'bootstrap-custom';
+
+.bg-inverse {
+  background-color: $brand-primary !important;
+}

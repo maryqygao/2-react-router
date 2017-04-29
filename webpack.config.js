@@ -4,7 +4,7 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  context: path.join(__dirname, 'src'),
+  context: path.resolve(__dirname, 'src'),
   devtool: debug ? 'inline-sourcemap' : null,
   entry: [
     'tether',
@@ -28,6 +28,28 @@ module.exports = {
             {
               loader: 'css-loader',
               options: {
+                camelCase: true,
+                minimize: debug ? true : false,
+                importLoaders: 1
+              }
+            },
+            'postcss-loader',
+            'resolve-url-loader'
+          ]
+        })
+      },
+      {
+        test: /\.mcss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          //resolve-url-loader may be chained before sass-loader if necessary
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+                camelCase: true,
                 minimize: debug ? true : false,
                 importLoaders: 1
               }
@@ -45,6 +67,7 @@ module.exports = {
             {
               loader: 'css-loader',
               options: {
+                camelCase: true,
                 minimize: debug ? true : false,
                 importLoaders: 3
               }
@@ -55,6 +78,48 @@ module.exports = {
               loader: 'sass-loader',
               options: {
                 sourceMap: true
+              }
+            },
+            {
+              loader: 'sass-resources-loader',
+              options: {
+                resources: [
+                  path.resolve(__dirname, './config/sass-resources.scss')
+                ]
+              }
+            }
+          ]
+        })
+      },
+      {
+        test: /\.mscss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+                camelCase: true,
+                minimize: debug ? true : false,
+                importLoaders: 3
+              }
+            },
+            'postcss-loader',
+            'resolve-url-loader',
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true
+              }
+            },
+            {
+              loader: 'sass-resources-loader',
+              options: {
+                resources: [
+                  path.resolve(__dirname, './config/sass-resources.scss')
+                ]
               }
             }
           ]

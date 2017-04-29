@@ -10,19 +10,19 @@ useFlexbox: true
 # Webpack loaders, order matters
 styleLoaders:
   - style-loader
-  - css-loader?&importLoaders=3
+  - css-loader?&camelCase&importLoaders=3
   - postcss-loader
   - resolve-url-loader
-  - sass-loader?sourceMap
+  - sass-loader
 
 env:
   production:
     styleLoaders:
       - style-loader
-      - css-loader?&minimize&importLoaders=3
+      - css-loader?&camelCase&minimize&importLoaders=3
       - postcss-loader
       - resolve-url-loader
-      - sass-loader?sourceMap
+      - sass-loader
 
 # Extract styles to stand-alone css file
 # Different settings for different environments can be used,
@@ -42,7 +42,7 @@ extractStyles: true
 # See the Bootstrap _variables.scss file for examples of derived Bootstrap variables.
 #
 # preBootstrapCustomizations: ./path/to/bootstrap/pre-customizations.scss
-
+preBootstrapCustomizations: ./src/css/bootstrap/bs-theme/_variables.scss
 
 # This gets loaded after bootstrap/variables is loaded
 # Thus, you may customize Bootstrap variables
@@ -55,7 +55,7 @@ extractStyles: true
 # Usually this endpoint-file contains list of @imports of your application styles
 #
 # appStyles: ./path/to/your/app/styles/endpoint.scss
-
+appStyles: ./src/css/globals.scss
 
 ### Bootstrap styles
 styles:
