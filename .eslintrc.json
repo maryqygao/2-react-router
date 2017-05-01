@@ -13,7 +13,6 @@
         "extensions": [".js", ".jsx"]
       }
     ],
-    "comma-dangle": ["error", "never"],
-    "jsx-quotes": ["error", "prefer-single"]
+    "comma-dangle": ["error", "never"]
   }
 }
