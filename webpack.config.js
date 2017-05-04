@@ -5,7 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
-  devtool: debug ? 'inline-sourcemap' : null,
+  devtool: debug ? 'cheap-module-source-map' : null,
   entry: [
     'tether',
     'font-awesome/scss/font-awesome.scss',
